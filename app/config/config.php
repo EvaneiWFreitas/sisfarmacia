@@ -1,6 +1,6 @@
 <?php
 /*** CONEXÃO COM BANCO DE DADOS */
-/**VARIAVEIS */
+/**CONSTANTES */
 define('SERVIDOR','localhost');
 define('USUARIO','root');
 define('PASSWORD','');
