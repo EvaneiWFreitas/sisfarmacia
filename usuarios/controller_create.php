@@ -35,7 +35,6 @@ $estado = '1';
 $nome_foto_perfil = "Sisfarmacia -".date('Y-m-d-h-i-s');
 $filename = $nome_foto_perfil."_". $_FILES['file']['name'];
 $localdaImage = "update_usuarios/".$filename;
-
 move_uploaded_file( $_FILES['file']['tmp_name'],$localdaImage);
 
 
@@ -73,7 +72,7 @@ if($cadastro->execute()){
 */
 /***
  * #########################################################################################################
- *   ( CRUD ) - CREATE - ( CRIAR CADASTRO DENTRO DO BANCO DE DADOS ) - SALVAR DADOS NO BANCO DE DADOS
+ *   ( CRUD ) - READ - ( LER ARQUIVOS DO BANCO DE DADOS ) - LER ARQUIVOS DO BANCO DE DADOS
  * #########################################################################################################
  */
 
