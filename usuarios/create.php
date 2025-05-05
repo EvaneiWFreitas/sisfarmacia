@@ -30,7 +30,7 @@ include('../app/config/config.php');
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <form action="controller_create.php" method="post">
+                            <form action="controller_create.php" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -56,6 +56,14 @@ include('../app/config/config.php');
                                         <div class="form-group">
                                             <label for="">Data Nascimento:</label>
                                             <input type="date" class="form-control" name="data_nasc">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">genero:</label>
+                                            <select name="genero" id="" class="form-control">
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Feminino"> Feminino</option>
+                                            </select>
+
                                         </div>
                                         <div class="form-group">
                                             <label for="">Cargo:</label>
@@ -280,7 +288,7 @@ include('../app/config/config.php');
                                         </div>
                                         <div class="form-group">
                                             <label for="">Foto Perfil:</label>
-                                            <input type="file" class="form-control" id="file" name="">
+                                            <input type="file" class="form-control" id="file" name="file">
                                             <output id="list" style="margin-top: 0px"></output>
                                         </div>
 

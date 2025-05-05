@@ -6,6 +6,7 @@ CREATE TABLE tb_usuarios(
     rg               VARCHAR(512)NULL,
     cpf              VARCHAR(512)NULL,
     data_nasc        VARCHAR(512)NULL,
+    genero           VARCHAR(512)NULL,
     pais             VARCHAR(512)NULL,
     celular          VARCHAR(512)NULL,
     cep              VARCHAR(512)NULL,

@@ -16,9 +16,11 @@ $ap_materno       = $_POST['ap_materno'];
 $rg               = $_POST['rg'];
 $cpf              = $_POST['cpf'];
 $data_nasc        = $_POST['data_nasc'];
+$genero           = $_POST['genero'];
 $pais             = $_POST['pais'];
 $celular          = $_POST['celular'];
 $cep              = $_POST['cep'];
+$foto_perfil      = $_POST['foto_perfil'];
 $email            = $_POST['email'];
 $senha            = $_POST['senha'];
 $cargo            = $_POST['cargo'];
@@ -29,12 +31,17 @@ $user_criador = "prwilliannascimento@hotmail.com";
 date_default_timezone_set("America/Sao_Paulo");
 $horaAtual = date('Y-m-d h:i:s');
 $estado = '1';
-//echo $horaAtual;
-//echo $fechaHora;
+
+$nome_foto_perfil = "Sisfarmacia -".date('Y-m-d-h-i-s');
+$filename = $nome_foto_perfil."_". $_FILES['file']['name'];
+$localdaImage = "update_usuarios/".$filename;
+
+move_uploaded_file( $_FILES['file']['tmp_name'],$localdaImage);
+
 
 $cadastro = $pdo->prepare("INSERT INTO tb_usuarios 
-            ( nome, ap_paterno, ap_materno, rg, cpf, data_nasc, pais, celular, cep, email, senha, cargo, estado, user_criador, data_criacao)
-            VALUES(:nome,:ap_paterno,:ap_materno,:rg,:cpf,:data_nasc,:pais,:celular,:cep,:email,:senha,:cargo,:estado,:user_criador,:data_criacao)");
+            ( nome, ap_paterno, ap_materno, rg, cpf, data_nasc, genero, pais, celular, cep, foto_perfil , email, senha, cargo, estado, user_criador, data_criacao)
+            VALUES(:nome,:ap_paterno,:ap_materno,:rg,:cpf,:data_nasc,:genero,:pais,:celular,:cep,:foto_perfil,:email,:senha,:cargo,:estado,:user_criador,:data_criacao)");
 
 $cadastro->bindParam(':nome',$nome);
 $cadastro->bindParam(':ap_paterno',$ap_paterno);
@@ -42,9 +49,11 @@ $cadastro->bindParam(':ap_materno',$ap_materno);
 $cadastro->bindParam(':rg',$rg);
 $cadastro->bindParam(':cpf',$cpf);
 $cadastro->bindParam(':data_nasc',$data_nasc);
+$cadastro->bindParam(':genero',$genero);
 $cadastro->bindParam(':pais',$pais);
 $cadastro->bindParam(':celular',$celular);
 $cadastro->bindParam(':cep',$cep);
+$cadastro->bindParam(':foto_perfil',$filename);
 $cadastro->bindParam(':email',$email);
 $cadastro->bindParam(':senha',$senha);
 $cadastro->bindParam(':cargo',$cargo);
